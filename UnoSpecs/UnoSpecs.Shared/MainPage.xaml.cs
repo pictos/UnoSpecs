@@ -7,6 +7,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -21,8 +22,18 @@ namespace UnoSpecs;
 /// </summary>
 public sealed partial class MainPage : Page
 {
+	public ObservableCollection<object> Items { get; } = new(new[] { "Hello", "there", "!" });
+
 	public MainPage()
 	{
 		this.InitializeComponent();
+		DataContext = this;
+		btn.Click += (_, __) =>
+		{
+			if (Random.Shared.Next(0, 10) % 2 == 0)
+				Items.Add($"New value {Items.Count}");
+			else
+				Items.RemoveAt(0);
+		};
 	}
 }
