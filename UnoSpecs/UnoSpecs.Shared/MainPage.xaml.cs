@@ -28,12 +28,38 @@ public sealed partial class MainPage : Page
 	{
 		this.InitializeComponent();
 		DataContext = this;
+
+		//Can use the C# methods directly
+
 		btn.Click += (_, __) =>
 		{
-			if (Random.Shared.Next(0, 10) % 2 == 0)
-				Items.Add($"New value {Items.Count}");
-			else
-				Items.RemoveAt(0);
+			FliperAttachedProperty.GoNext(pipsPager2);
+		};
+
+		btnBack.Click += (_, ___) =>
+		{
+			this.Frame.GoBack();
 		};
 	}
+
 }
+
+
+//class FirstPage : Page
+//{
+//	public FirstPage()
+//	{
+//		var btn = new Button
+//		{
+//			VerticalAlignment = VerticalAlignment.Center,
+//			Content = "Go back",
+//		};
+
+//		btn.Click += (_, __) =>
+//		{
+//			this.Frame.Navigate(typeof(MainPage));
+//		};
+
+//		Content = btn;
+//	}
+//}

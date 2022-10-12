@@ -18,8 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)CarouselView.xaml.cs">
-      <DependentUpon>CarouselView.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)FirstPage.xaml.cs">
+      <DependentUpon>FirstPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)FliperAttachedProperty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
@@ -27,7 +27,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)CarouselView.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)FirstPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
