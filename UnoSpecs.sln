@@ -9,11 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnoSpecs.Wasm", "UnoSpecs\UnoSpecs.Wasm\UnoSpecs.Wasm.csproj", "{E0ECC13F-5CAA-4FE7-8F4C-A8F4BAB8967D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnoSpecs.Mobile", "UnoSpecs\UnoSpecs.Mobile\UnoSpecs.Mobile.csproj", "{AD39206E-61F7-49E1-A224-32A830195BCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoSpecs.Mobile", "UnoSpecs\UnoSpecs.Mobile\UnoSpecs.Mobile.csproj", "{AD39206E-61F7-49E1-A224-32A830195BCF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnoSpecs.Skia.Gtk", "UnoSpecs\UnoSpecs.Skia.Gtk\UnoSpecs.Skia.Gtk.csproj", "{07C15642-BBC6-4E58-9F60-BE8F19D6770F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnoSpecs.Windows", "UnoSpecs\UnoSpecs.Windows\UnoSpecs.Windows.csproj", "{B0B61FE7-A1A4-42E6-95B5-404DAB3021A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoSpecs.Windows", "UnoSpecs\UnoSpecs.Windows\UnoSpecs.Windows.csproj", "{B0B61FE7-A1A4-42E6-95B5-404DAB3021A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoSpecs.Skia.Wpf", "UnoSpecs\Uno.Specs.Skia.Wpf\UnoSpecs.Skia.Wpf.csproj", "{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +109,22 @@ Global
 		{B0B61FE7-A1A4-42E6-95B5-404DAB3021A9}.Release|x86.ActiveCfg = Release|x86
 		{B0B61FE7-A1A4-42E6-95B5-404DAB3021A9}.Release|x86.Build.0 = Release|x86
 		{B0B61FE7-A1A4-42E6-95B5-404DAB3021A9}.Release|x86.Deploy.0 = Release|x86
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Debug|arm64.Build.0 = Debug|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Debug|x64.Build.0 = Debug|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Debug|x86.Build.0 = Debug|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Release|arm64.ActiveCfg = Release|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Release|arm64.Build.0 = Release|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Release|x64.ActiveCfg = Release|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Release|x64.Build.0 = Release|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Release|x86.ActiveCfg = Release|Any CPU
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +134,7 @@ Global
 		{AD39206E-61F7-49E1-A224-32A830195BCF} = {BEE04875-7276-436A-B96A-612BB54D2852}
 		{07C15642-BBC6-4E58-9F60-BE8F19D6770F} = {BEE04875-7276-436A-B96A-612BB54D2852}
 		{B0B61FE7-A1A4-42E6-95B5-404DAB3021A9} = {BEE04875-7276-436A-B96A-612BB54D2852}
+		{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1} = {BEE04875-7276-436A-B96A-612BB54D2852}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2CD87292-E0D3-4CB6-B80B-F76E2E8C5D7A}
@@ -125,6 +144,7 @@ Global
 		UnoSpecs\UnoSpecs.Shared\UnoSpecs.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
 		UnoSpecs\UnoSpecs.Shared\UnoSpecs.Shared.projitems*{ad39206e-61f7-49e1-a224-32a830195bcf}*SharedItemsImports = 5
 		UnoSpecs\UnoSpecs.Shared\UnoSpecs.Shared.projitems*{b0b61fe7-a1a4-42e6-95b5-404dab3021a9}*SharedItemsImports = 5
+		UnoSpecs\UnoSpecs.Shared\UnoSpecs.Shared.projitems*{b1500018-0faf-4cb6-a0f7-e1f9ef16cdc1}*SharedItemsImports = 5
 		UnoSpecs\UnoSpecs.Shared\UnoSpecs.Shared.projitems*{e0ecc13f-5caa-4fe7-8f4c-a8f4bab8967d}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
