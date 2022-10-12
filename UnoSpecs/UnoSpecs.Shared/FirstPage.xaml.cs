@@ -28,6 +28,15 @@ namespace UnoSpecs
 
 			btn.Click += (_, __) =>
 			{
+                GC.Collect();
+                GC.Collect();
+                GC.Collect();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                GC.Collect();
+                GC.Collect();
+                GC.Collect();
+				GC.WaitForPendingFinalizers();
 				this.Frame.Navigate(typeof(MainPage));
 			};
 		}
