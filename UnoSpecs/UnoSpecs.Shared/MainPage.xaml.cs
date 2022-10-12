@@ -1,4 +1,6 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -24,5 +26,30 @@ public sealed partial class MainPage : Page
 	public MainPage()
 	{
 		this.InitializeComponent();
+		//windowsdesktop
+		Analytics.TrackEvent("App launched");
+		//throw new Exception("Just a not handled test exception.");
+	}
+
+	void OnClick(object sender, RoutedEventArgs e)
+	{
+		Analytics.TrackEvent("WPF Button Clicked");
+
+
+		//try
+		//{
+		//	throw new Exception("Just a not handled test exception.");
+
+		//}
+		//catch (Exception ex)
+		//{
+		//	var dic = new Dictionary<string, string>
+		//	{
+		//		["knoc knoc"] = "Who is it?",
+		//		["It's..."] = "WPF"
+		//	};
+		//	Crashes.TrackError(ex, dic);
+		//}
+
 	}
 }

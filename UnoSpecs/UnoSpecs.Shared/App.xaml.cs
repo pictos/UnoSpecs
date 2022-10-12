@@ -1,10 +1,14 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 namespace UnoSpecs;
 /// <summary>
@@ -84,6 +88,11 @@ public sealed partial class App : Application
 			// Ensure the current window is active
 			_window.Activate();
 		}
+
+		AppCenter.Start("android=bb27cd57-fb64-47df-a951-22a54231f948;" +
+				  "windowsdesktop=a1cf28ae-d4cd-4922-b255-1e0a9dbb7cc7;",
+				  typeof(Analytics), typeof(Crashes));
+		AppCenter.SetCountryCode("br");
 	}
 
 	/// <summary>
