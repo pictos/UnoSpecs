@@ -7,7 +7,7 @@ namespace UnoSpecs
 	partial class FliperAttachedProperty : DependencyObject
 	{
 		public static readonly DependencyProperty FlipOwnerProperty =
-	DependencyProperty.RegisterAttached("FlipOwner", typeof(FlipView), typeof(FliperAttachedProperty), new PropertyMetadata(null, OnDataChanged));
+			DependencyProperty.RegisterAttached("FlipOwner", typeof(FlipView), typeof(FliperAttachedProperty), new PropertyMetadata(null, OnDataChanged));
 
 		static void OnDataChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs args)
 		{
