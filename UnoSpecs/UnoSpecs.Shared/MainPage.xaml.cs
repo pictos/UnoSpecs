@@ -22,18 +22,54 @@ namespace UnoSpecs;
 /// </summary>
 public sealed partial class MainPage : Page
 {
-	public ObservableCollection<object> Items { get; } = new(new[] { "Hello", "there", "!" });
+	public ObservableCollection		<object> Items { get; } = new(new[] { "Hello", "there", "!" });
 
 	public MainPage()
 	{
 		this.InitializeComponent();
 		DataContext = this;
+		//btn.Click += (_, __) =>
+		//{
+		//	if (Random.Shared.Next(0, 10) % 2 == 0)
+		//		Items.Add($"New value {Items.Count}");
+		//	else
+		//		Items.RemoveAt(0);
+		//};
+
+		//flipView.ManipulationDelta += FlipView_ManipulationDelta;
+
+
 		btn.Click += (_, __) =>
 		{
-			if (Random.Shared.Next(0, 10) % 2 == 0)
-				Items.Add($"New value {Items.Count}");
-			else
-				Items.RemoveAt(0);
+			var grid = new Grid();
+
+			var bt1 = new Button
+			{
+				Content = "Previous",
+				HorizontalAlignment = HorizontalAlignment.Left
+			};
+			//FliperAttachedProperty.SetPrevious(bt1, flipView);
+
+
+			var bt2 = new Button
+			{
+				Content = "Next",
+				HorizontalAlignment = HorizontalAlignment.Right
+			};
+			FliperAttachedProperty.SetNext(bt2, flipView);
+
+			grid.Children.Add(bt1);
+			grid.Children.Add(bt2);
+
+			flipView.Items.Add(grid);
 		};
+	}
+
+	void FlipView_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+	{
+		if (e.Delta.Translation.X != 0)
+		{
+			e.Handled = true;
+		}
 	}
 }

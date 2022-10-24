@@ -12,47 +12,67 @@
 		<StackPanel
 			x:Name="stack"
 			Padding="0"
-			VerticalAlignment="Center"
 			Spacing="20">
 
-			<Button x:Name="btn" Content="Hello" />
+			<Button x:Name="btn" Content="Add" />
 
 			<FlipView
 				x:Name="flipView"
 				Height="180"
 				MaxWidth="100"
 				Margin="0,0,0,0"
+				local:FliperAttachedProperty.PipsPager="{Binding ElementName=pipsPager2}"
 				Background="Green"
 				BorderBrush="Black"
-				BorderThickness="1"
-				ItemsSource="{x:Bind Items, Mode=OneWay}">
-				<FlipView.ItemTemplate>
+				BorderThickness="1">
+				<!--<FlipView.ItemTemplate>
 					<DataTemplate x:DataType="x:String">
-						<Grid Background="Blue">
-							<TextBlock
-								Padding="12,12"
-								HorizontalAlignment="Center"
-								Foreground="#CCFFFFFF"
-								Text="{x:Bind Mode=OneTime}" />
+						<Grid
+							Background="Blue"
+							ManipulationDelta="FlipView_ManipulationDelta"
+							ManipulationMode="All">
+							<Button Content="{x:Bind}" />
 						</Grid>
 					</DataTemplate>
-				</FlipView.ItemTemplate>
+				</FlipView.ItemTemplate>-->
+
+				<FlipView.Items>
+					<Grid ManipulationDelta="FlipView_ManipulationDelta" ManipulationMode="TranslateX">
+
+						<Button local:FliperAttachedProperty.Next="{x:Bind flipView}" Content="Next" />
+					</Grid>
+
+					<Grid ManipulationDelta="FlipView_ManipulationDelta" ManipulationMode="All">
+
+						<Button local:FliperAttachedProperty.Next="{x:Bind flipView}" Content="Next1" />
+					</Grid>
+
+					<Grid ManipulationDelta="FlipView_ManipulationDelta" ManipulationMode="All">
+
+						<Button local:FliperAttachedProperty.Next="{x:Bind flipView}" Content="Next2" />
+					</Grid>
+
+					<Grid ManipulationDelta="FlipView_ManipulationDelta" ManipulationMode="All">
+
+						<Button local:FliperAttachedProperty.Next="{x:Bind flipView}" Content="Next3" />
+					</Grid>
+				</FlipView.Items>
+
 			</FlipView>
 			<PipsPager
 				x:Name="pipsPager"
 				MinHeight="100"
 				Margin="0,0,0,0"
 				HorizontalAlignment="Center"
-				NumberOfPages="{x:Bind Items.Count, Mode=OneWay}"
+				Background="Red"
+				NumberOfPages="{x:Bind flipView, Path=Items.Count, Mode=OneWay}"
 				SelectedPageIndex="{x:Bind flipView.SelectedIndex, Mode=TwoWay}" />
 			<PipsPager
 				x:Name="pipsPager2"
 				MinHeight="100"
 				Margin="0,0,0,0"
-				HorizontalAlignment="Center"
-				local:FliperAttachedProperty.FlipOwner="{x:Bind flipView}" />
-
-			<local:CarouselView ItemsSource="{x:Bind Items, Mode=OneWay}" />
+				HorizontalAlignment="Stretch"
+				Background="Blue" />
 		</StackPanel>
 	</ScrollViewer>
 </Page>

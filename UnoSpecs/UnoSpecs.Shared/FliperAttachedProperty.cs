@@ -1,23 +1,25 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Data;
+using System.Windows.Input;
+using System;
+using Microsoft.UI.Xaml.Controls.Primitives;
 
 namespace UnoSpecs
 {
 	partial class FliperAttachedProperty : DependencyObject
 	{
-		public static readonly DependencyProperty FlipOwnerProperty =
-			DependencyProperty.RegisterAttached("FlipOwner", typeof(FlipView), typeof(FliperAttachedProperty), new PropertyMetadata(null, OnDataChanged));
+		public static readonly DependencyProperty PipsPagerProperty =
+			DependencyProperty.RegisterAttached("PipsPager", typeof(PipsPager), typeof(FliperAttachedProperty), new PropertyMetadata(null, OnPipsPagerChanged));
 
-		static void OnDataChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs args)
+		static void OnPipsPagerChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs args)
 		{
 			if (args.NewValue == args.OldValue && args.NewValue is null)
 				return;
 
-			var flipView = (FlipView)args.NewValue;
+			var flipView = (Selector)dependencyObject;
 
-			var pipsPager = (PipsPager)dependencyObject;
-
+			var pipsPager = (PipsPager)args.NewValue;
 
 			// For some reason Binding doesn't work here
 			//var itemsCountBinding = new Binding
@@ -27,6 +29,8 @@ namespace UnoSpecs
 			//	Path = new("Count")
 			//};
 
+			// can this cause memory leaks?
+			// Should we have some WeakEventManager?
 			flipView.Items.VectorChanged += (_, __) =>
 			{
 				pipsPager.NumberOfPages = flipView.Items.Count;
@@ -43,11 +47,105 @@ namespace UnoSpecs
 			//pipsPager.SetBinding(PipsPager.NumberOfPagesProperty, itemsCountBinding);
 
 			pipsPager.NumberOfPages = flipView.Items.Count;
+
+#if WINDOWS
+			pipsPager.InvalidateArrange();
+#endif
 		}
 
-		public static void SetFlipOwner(UIElement element, FlipView value) =>
-			element.SetValue(FlipOwnerProperty, value);
+		public static void SetPipsPager(Selector element, PipsPager value) =>
+			element.SetValue(PipsPagerProperty, value);
 
-		public static FlipView GetFlipOwner(UIElement element) => (FlipView)element.GetValue(FlipOwnerProperty);
+		public static PipsPager GetPipsPager(Selector element) => (PipsPager)element.GetValue(PipsPagerProperty);
+
+		public static void GoNext(UIElement element)
+		{
+			var flipView = (FlipView)element;
+
+			var index = flipView.SelectedIndex;
+			index++;
+			if (index >= flipView.Items.Count)
+				return;
+
+			flipView.SelectedIndex = index;
+		}
+
+		public static readonly DependencyProperty NextProperty =
+			DependencyProperty.RegisterAttached("Next", typeof(FlipView), typeof(FliperAttachedProperty), new PropertyMetadata(null, OnNextChanged));
+
+		static void OnNextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+		{
+			if (d is not Button btn || e.NewValue is null)
+				return;
+
+			var flipView = (FlipView)e.NewValue;
+
+			btn.Click -= Btn_Click;
+			btn.Click += Btn_Click;
+
+			void Btn_Click(object sender, RoutedEventArgs e)
+			{
+				GoNext(flipView);
+			}
+		}
+
+
+		public static void SetNext(Button element, FlipView value) => element.SetValue(NextProperty, value);
+
+		public static FlipView GetNext(Button element) => (FlipView)element.GetValue(NextProperty);
+
+
+
+		public static void GoBack(UIElement element)
+		{
+			var flipView = (FlipView)element;
+
+			var index = flipView.SelectedIndex;
+			index--;
+			if (index < 0)
+				return;
+
+			flipView.SelectedIndex = index;
+		}
+
+		//public static void OnNextCommand(Button nextButton)
+		//{
+
+		//	new Command(_ => GoNext(flipView));
+		//}
+
+		//public static ICommand OnBackCommand(FlipView element) =>
+		//new Command((o) => GoBack(element));
+	}
+
+
+	// Just a silly ICommand implementation
+	public class Command : ICommand
+	{
+		private Action<object> action;
+		private bool canExecute;
+		public event EventHandler CanExecuteChanged;
+
+		public Command(Action<object> action, bool canExecute)
+		{
+			this.action = action;
+			this.canExecute = canExecute;
+		}
+
+
+		public Command(Action<object> action)
+			: this(action, true)
+		{
+		}
+
+		public bool CanExecute(object parameter)
+		{
+			return canExecute;
+		}
+
+		public void Execute(object parameter)
+		{
+			action(parameter);
+		}
 	}
 }
