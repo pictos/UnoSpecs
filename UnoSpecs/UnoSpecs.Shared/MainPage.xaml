@@ -13,6 +13,11 @@
 			Margin="20"
 			FontSize="30"
 			Text="Hello, world!" />
-		<Image Source="ms-appx:dotnet_bot.png" />
+
+		<!--  This works on WinUI  -->
+		<Image Source="ms-appx:Assets/Images/dotnet_bot.svg" />
+
+		<!--  This works on Android  -->
+		<Image Source="dotnet_bot" />
 	</StackPanel>
 </Page>

@@ -30,8 +30,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Assets\SharedAssets.md" />
-    <MauiImage Include="$(MSBuildThisFileDirectory)Assets\dotnet_bot.svg" />
-    <None Include="$(MSBuildThisFileDirectory)Assets\dotnet_bot.svg" />
+    <MauiImage Include="$(MSBuildThisFileDirectory)Assets\Images\*" />
+    <None Include="$(MSBuildThisFileDirectory)Assets\Images\dotnet_bot.svg" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />
@@ -55,11 +55,14 @@
     <_Globbed_PRIResource Include="$(MSBuildThisFileDirectory)**/*.resw" Exclude="@(PRIResource)" />
     <PRIResource Include="@(_Globbed_PRIResource)" />
     <_Globbed_Content Include="$(MSBuildThisFileDirectory)Assets/**/*.*" Exclude="@(Content)" />
-    <Content Include="@(_Globbed_Content)" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Images\dotnet_bot.svg" />
     <!-- Mark the files from this folder as being part of WinUI -->
     <Page Update="$(MSBuildThisFileDirectory)**/*.xaml" XamlRuntime="WinUI" />
     <ApplicationDefinition Update="$(MSBuildThisFileDirectory)**/*.xaml" XamlRuntime="WinUI" />
     <!-- Make sure XAML files force reevaluation of up-to-date checks -->
     <UpToDateCheckInput Include="$(MSBuildThisFileDirectory)**/*.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Assets\Images\" />
   </ItemGroup>
 </Project>

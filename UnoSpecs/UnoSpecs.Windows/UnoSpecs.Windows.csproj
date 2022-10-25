@@ -28,6 +28,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
 		<PackageReference Include="Uno.Core.Extensions.Logging.Singleton" Version="4.0.1" />
 
+		<PackageReference Include="Microsoft.Maui.Resizetizer.Sdk" Version="6.0.101-preview.11.2349" />
 		<Manifest Include="$(ApplicationManifest)" />
 	</ItemGroup>
 
