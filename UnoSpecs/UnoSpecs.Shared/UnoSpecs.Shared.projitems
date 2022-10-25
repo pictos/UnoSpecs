@@ -29,8 +29,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Assets\Images\appiconfg.svg" />
+    <None Include="$(MSBuildThisFileDirectory)Assets\Images\appicon.svg" />
+    <MauiIcon Include="$(MSBuildThisFileDirectory)Assets\Images\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
     <None Include="$(MSBuildThisFileDirectory)Assets\SharedAssets.md" />
     <MauiImage Include="$(MSBuildThisFileDirectory)Assets\Images\*" />
+    <MauiSplashScreen Include="$(MSBuildThisFileDirectory)Assets\Images\dotnet_bot.svg" BaseSize="128,128" Color="#512BD4" />
     <None Include="$(MSBuildThisFileDirectory)Assets\Images\dotnet_bot.svg" />
   </ItemGroup>
   <ItemGroup>
@@ -61,8 +65,5 @@
     <ApplicationDefinition Update="$(MSBuildThisFileDirectory)**/*.xaml" XamlRuntime="WinUI" />
     <!-- Make sure XAML files force reevaluation of up-to-date checks -->
     <UpToDateCheckInput Include="$(MSBuildThisFileDirectory)**/*.xaml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Assets\Images\" />
   </ItemGroup>
 </Project>

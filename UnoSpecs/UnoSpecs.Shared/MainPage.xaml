@@ -15,7 +15,7 @@
 			Text="Hello, world!" />
 
 		<!--  This works on WinUI  -->
-		<Image Source="ms-appx:Assets/Images/dotnet_bot.svg" />
+		<!--<Image Source="ms-appx:Assets/Images/dotnet_bot.svg" />-->
 
 		<!--  This works on Android  -->
 		<Image Source="dotnet_bot" />
