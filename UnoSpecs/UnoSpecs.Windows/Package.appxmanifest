@@ -7,13 +7,13 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="82D57A91-4788-4329-A27B-168BB25CAFFC"
-    Publisher="O=UnoQuickStart"
+    Name="37bcd140-3d9f-4475-8ee6-3bf7a82600ac"
+    Publisher="O=UnoSpecs"
     Version="1.0.0.0" />
 
   <Properties>
-	<DisplayName>UnoQuickStart</DisplayName>
-	<PublisherDisplayName>UnoQuickStart</PublisherDisplayName>
+	<DisplayName>UnoSpecs</DisplayName>
+	<PublisherDisplayName>UnoSpecs</PublisherDisplayName>
 	<Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="UnoQuickStart"
-        Description="UnoQuickStart"
+        DisplayName="UnoSpecs"
+        Description="UnoSpecs"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
