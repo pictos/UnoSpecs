@@ -18,6 +18,8 @@
 		<!--<Image Source="ms-appx:Assets/Images/dotnet_bot.svg" />-->
 
 		<!--  This works on Android  -->
-		<Image Source="dotnet_bot" />
+		<!--<Image Source="dotnet_bot" />-->
+		<Image Source="ms-appx:///dotnet_bot.png" />
+
 	</StackPanel>
 </Page>

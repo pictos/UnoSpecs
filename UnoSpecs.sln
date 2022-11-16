@@ -17,6 +17,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoSpecs.Windows", "UnoSpec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoSpecs.Skia.Wpf", "UnoSpecs\Uno.Specs.Skia.Wpf\UnoSpecs.Skia.Wpf.csproj", "{B1500018-0FAF-4CB6-A0F7-E1F9EF16CDC1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{719A5B7B-E8E9-48D5-8AE1-51E98CD54C08}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.targets = Directory.Build.targets
+		Uno.Resizetizer.targets = Uno.Resizetizer.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
